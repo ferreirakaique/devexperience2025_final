@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+    --brand-1: #459EB5;
+    --brand-2: #004759;
+    --brand-1-quiet: rgba(69, 158, 181, .15);
+    --brand-2-quiet: rgba(0, 71, 89, .25);
+    --text-on-dark: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, .8);
+    --surface: rgba(0, 71, 89, .55);
+    --surface-strong: rgba(0, 71, 89, .8);
+    --border: rgba(69, 158, 181, .5);
+    --shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --focus-ring: 0 0 0 3px var(--brand-1-quiet), 0 0 0 6px rgba(255, 255, 255, .15);
+}
+
+body {
+    background: radial-gradient(ellipse 200% 200% at 50% 0%, var(--brand-1), var(--brand-2) 25%);
+    background-attachment: fixed;
+    color: var(--text-on-dark);
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo h1 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--text-on-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.titulo h1 i {
+    color: var(--brand-1);
+}
+
+.titulo p {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+#form_perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 50px;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(6px);
+    box-shadow: var(--shadow);
+    width: 50%;
+}
+
+.inputbox {
+    position: relative;
+    margin-top: 20px;
+}
+
+.inputbox input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--surface-strong);
+    color: var(--text-on-dark);
+    font-size: 1rem;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.inputbox input:focus {
+    border-color: var(--brand-1);
+    box-shadow: var(--focus-ring);
+    background: var(--surface);
+}
+
+.inputbox span {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    transition: .2s;
+}
+
+.inputbox input:focus~span,
+.inputbox input:valid~span {
+    color: var(--brand-1);
+    transform: translateY(-185%) translateX(2px);
+    background: var(--surface-strong);
+    font-size: .85rem;
+    padding: 0 6px;
+}
+
+#btn_salvar_perfil {
+    margin-top: 20px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--brand-1);
+    background: linear-gradient(180deg, var(--brand-1), var(--brand-2));
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+#btn_salvar_perfil:hover {
+    filter: brightness(1.05);
+}

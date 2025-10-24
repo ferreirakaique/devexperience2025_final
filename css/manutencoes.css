@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+    --brand-1: #459EB5;
+    --brand-2: #004759;
+    --brand-1-quiet: rgba(69, 158, 181, .15);
+    --brand-2-quiet: rgba(0, 71, 89, .25);
+    --text-on-dark: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, .8);
+    --surface: rgba(0, 71, 89, .55);
+    --surface-strong: rgba(0, 71, 89, .8);
+    --border: rgba(69, 158, 181, .5);
+    --shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    --radius-lg: 20px;
+    --radius-md: 14px;
+}
+
+body {
+    background: radial-gradient(ellipse 200% 200% at 50% 0%, var(--brand-1), var(--brand-2) 25%);
+    background-attachment: fixed;
+    color: var(--text-on-dark);
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.titulo h1 {
+    font-size: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--text-on-dark);
+}
+
+.titulo h1 i {
+    color: var(--brand-1);
+}
+
+.titulo p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* =========================
+   CARDS DE MANUTENÇÃO
+   ========================= */
+.cards_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.card_manutencao {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--brand-2-quiet);
+    transition: transform .2s ease, filter .2s ease;
+}
+
+.card_manutencao:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.05);
+}
+
+.card_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.card_header h2 {
+    font-size: 1.2rem;
+    color: var(--text-on-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tag_tipo {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Tipos de manutenção */
+.card_manutencao.preventiva .tag_tipo {
+    background-color: rgba(69, 181, 120, .2);
+    color: #5EE47F;
+    border: 1px solid #5EE47F;
+}
+
+.card_manutencao.corretiva .tag_tipo {
+    background-color: rgba(255, 82, 82, .2);
+    color: #FF6B6B;
+    border: 1px solid #FF6B6B;
+}
+
+.card_body p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 5px 0;
+}
+
+/* Botão de adicionar */
+.botao_nova {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 40px;
+    padding: 12px 24px;
+    background: linear-gradient(180deg, var(--brand-1), var(--brand-2));
+    border-radius: 999px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+    box-shadow: var(--shadow);
+}
+
+.botao_nova:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.sem_manutencoes {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+}

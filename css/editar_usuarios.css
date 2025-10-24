@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* =========================
+   Design Tokens (Youtan)
+   ========================= */
+:root {
+    --brand-1: #459EB5;
+    --brand-2: #004759;
+    --brand-1-quiet: rgba(69, 158, 181, .15);
+    --brand-2-quiet: rgba(0, 71, 89, .25);
+
+    --text-on-dark: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, .8);
+    --surface: rgba(0, 71, 89, .55);
+    --surface-strong: rgba(0, 71, 89, .8);
+    --border: rgba(69, 158, 181, .5);
+    --shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --focus-ring: 0 0 0 3px var(--brand-1-quiet), 0 0 0 6px rgba(255, 255, 255, .15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+body {
+    background: radial-gradient(ellipse 200% 200% at 50% 0%, var(--brand-1), var(--brand-2) 25%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--text-on-dark);
+    min-height: 100vh;
+}
+
+/* =========================
+   Estrutura Principal
+   ========================= */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 80px 20px 50px;
+}
+
+/* Título */
+.titulo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo h1 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--text-on-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.titulo h1 i {
+    color: var(--brand-1);
+    font-size: 1.8rem;
+    filter: drop-shadow(0 0 6px rgba(69, 158, 181, 0.3));
+}
+
+.titulo p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* =========================
+   Formulário
+   ========================= */
+#form_editar_usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 50px;
+    background: var(--surface);
+    border: 1px solid var(--brand-2-quiet);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(6px);
+    box-shadow: var(--shadow);
+    width: 50%;
+}
+
+/* Inputs e selects */
+.inputbox {
+    position: relative;
+    margin-top: 6px;
+}
+
+.inputbox input,
+.inputbox select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    outline: none;
+    color: var(--text-on-dark);
+    font-size: 1rem;
+    background: var(--surface-strong);
+    transition: border-color .2s, box-shadow .2s, background .2s, transform .05s;
+}
+
+.inputbox input:hover,
+.inputbox select:hover {
+    border-color: var(--brand-1);
+}
+
+.inputbox input:focus,
+.inputbox select:focus {
+    border-color: var(--brand-1);
+    box-shadow: var(--focus-ring);
+    background: var(--surface);
+}
+
+/* Label flutuante */
+.inputbox span {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 1rem;
+    color: var(--text-muted);
+    transition: .2s;
+    padding: 0 6px;
+    background: transparent;
+    border-radius: 12px;
+}
+
+.inputbox input:valid~span,
+.inputbox input:focus~span,
+.inputbox select:focus~span {
+    color: var(--brand-1);
+    transform: translateY(-185%) translateX(2px);
+    background: var(--surface-strong);
+    font-size: .85rem;
+}
+
+#tipo_usuario {
+    color: var(--brand-1);
+    transform: translateY(-185%) translateX(2px);
+    background: var(--surface-strong);
+    font-size: .85rem;
+}
+
+/* =========================
+   Botão principal
+   ========================= */
+#btn_salvar_usuario {
+    margin-top: 20px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    border: 1px solid var(--brand-1);
+    background: linear-gradient(180deg, var(--brand-1), var(--brand-2));
+    color: var(--text-on-dark);
+    font-weight: 600;
+    letter-spacing: .2px;
+    transition: transform .06s ease, filter .2s ease, box-shadow .2s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .25);
+    width: 100%;
+}
+
+#btn_salvar_usuario:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+#btn_salvar_usuario:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+/* =========================
+   Acessibilidade e Responsividade
+   ========================= */
+::placeholder {
+    color: rgba(255, 255, 255, .55);
+}
+
+@media (max-width: 768px) {
+    #form_editar_usuario {
+        width: 90%;
+        padding: 35px;
+    }
+
+    .titulo h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #form_editar_usuario {
+        padding: 28px;
+        border-radius: 16px;
+    }
+
+    .titulo h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    #form_editar_usuario,
+    .inputbox input,
+    #btn_salvar_usuario {
+        transition: none;
+    }
+}

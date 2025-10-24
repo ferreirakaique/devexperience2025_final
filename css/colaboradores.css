@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* =========================
+   Design Tokens (Youtan)
+   ========================= */
+:root {
+    --brand-1: #459EB5;
+    --brand-2: #004759;
+    --brand-1-quiet: rgba(69, 158, 181, .15);
+    --brand-2-quiet: rgba(0, 71, 89, .25);
+
+    --text-on-dark: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, .8);
+    --surface: rgba(0, 71, 89, .55);
+    --surface-strong: rgba(0, 71, 89, .8);
+    --border: rgba(69, 158, 181, .5);
+    --shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --focus-ring: 0 0 0 3px var(--brand-1-quiet), 0 0 0 6px rgba(255, 255, 255, .15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+body {
+    background: radial-gradient(ellipse 200% 200% at 50% 0%, var(--brand-1), var(--brand-2) 25%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--text-on-dark);
+    min-height: 100vh;
+}
+
+/* =========================
+   Estrutura Principal
+   ========================= */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 80px 20px 50px;
+}
+
+/* Título */
+.titulo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-on-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.titulo h1 i {
+    color: var(--brand-1);
+    font-size: 1.9rem;
+    filter: drop-shadow(0 0 6px rgba(69, 158, 181, 0.3));
+}
+
+.titulo p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.tabela_container {
+    margin: 20px auto;
+    width: 90%;
+    background: #00384a;
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
+    border: 1px solid #00d4ff;
+}
+
+.tabela_usuarios {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela_usuarios th,
+.tabela_usuarios td {
+    border-bottom: 1px solid #006b85;
+    padding: 10px;
+    text-align: center;
+}
+
+.tabela_usuarios th {
+    background: #006b85;
+    font-weight: bold;
+}
+
+.acoes a {
+    color: #fff;
+    margin: 0 5px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.acoes a:hover {
+    color: #00d4ff;
+}
+
+.botao_adicionar {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 20px;
+    background: #00a0c8;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.botao_adicionar:hover {
+    background: #0083a4;
+}
