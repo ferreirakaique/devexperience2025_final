@@ -14,6 +14,9 @@ $nome_usuario = $_SESSION["nome_usuario"];
 $email_usuario = $_SESSION["email_usuario"];
 $tipo_usuario = $_SESSION["tipo_usuario"];
 
+// Define se é Admin
+$isAdmin = ($tipo_usuario === 'Admin');
+
 // Busca todas as manutenções com o nome do ativo e do responsável
 $query = "
     SELECT 
@@ -75,9 +78,12 @@ $result = $conexao->query($query);
             <?php endif; ?>
         </div>
 
-        <a href="cadastrar_manutencoes.php" class="botao_nova">
-            <i class="fa-solid fa-plus"></i> Registrar Nova Manutenção
-        </a>
+        <!-- Botão só aparece para ADMIN -->
+        <?php if ($isAdmin): ?>
+            <a href="cadastrar_manutencoes.php" class="botao_nova">
+                <i class="fa-solid fa-plus"></i> Registrar Nova Manutenção
+            </a>
+        <?php endif; ?>
     </main>
 </body>
 

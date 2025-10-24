@@ -14,12 +14,14 @@ $nome_usuario = $_SESSION["nome_usuario"];
 $email_usuario = $_SESSION["email_usuario"];
 $tipo_usuario = $_SESSION["tipo_usuario"];
 
+// >>> ADICIONE ESTA FLAG <<<
+$isAdmin = ($tipo_usuario === 'Admin');
+
 // Busca todos os ativos
 $stmt_ativos = $conexao->prepare('SELECT * FROM ativos ORDER BY id_ativo ASC');
 $stmt_ativos->execute();
 $result_ativos = $stmt_ativos->get_result();
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -39,7 +41,6 @@ $result_ativos = $stmt_ativos->get_result();
             <h1><i class="fa-solid fa-boxes-stacked"></i> Ativos Cadastrados</h1>
             <p>Visualize e gerencie todos os ativos registrados no sistema de forma simples e organizada.</p>
         </div>
-
 
         <div class="ativos_container">
             <?php if ($result_ativos->num_rows > 0): ?>
@@ -78,12 +79,15 @@ $result_ativos = $stmt_ativos->get_result();
             <?php endif; ?>
         </div>
 
-        <a href="cadastrar_ativos.php">+ Cadastrar novo ativo</a>
+        <!-- >>> OCULTE O BOTÃO PARA NÃO-ADMINS <<< -->
+        <?php if ($isAdmin): ?>
+            <a href="cadastrar_ativos.php" class="btn_cadastrar_ativo">+ Cadastrar novo ativo</a>
+        <?php endif; ?>
     </main>
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const botoesExcluir = document.querySelectorAll(".excluir");
-
             botoesExcluir.forEach(botao => {
                 botao.addEventListener("click", (e) => {
                     e.preventDefault();
@@ -110,7 +114,6 @@ $result_ativos = $stmt_ativos->get_result();
             });
         });
     </script>
-
 </body>
 
 </html>
