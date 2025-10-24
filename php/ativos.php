@@ -45,18 +45,20 @@ $result_ativos = $stmt_ativos->get_result();
             <?php if ($result_ativos->num_rows > 0): ?>
                 <?php while ($ativo = $result_ativos->fetch_assoc()): ?>
                     <div class="ativo_card">
-                        <div class="acoes">
-                            <a href="editar_ativos.php?id=<?php echo urlencode($ativo['id_ativo']); ?>" class="editar" title="Editar">
-                                <i class="fa-solid fa-pen"></i>
-                            </a>
-                            <a href="#"
-                                class="excluir"
-                                title="Excluir"
-                                data-id="<?php echo htmlspecialchars($ativo['id_ativo']); ?>"
-                                data-nome="<?php echo htmlspecialchars($ativo['nome_ativo']); ?>">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                        </div>
+                        <?php if ($isAdmin): ?>
+                            <div class="acoes">
+                                <a href="editar_ativos.php?id=<?php echo urlencode($ativo['id_ativo']); ?>" class="editar" title="Editar">
+                                    <i class="fa-solid fa-pen"></i>
+                                </a>
+                                <a href="#"
+                                    class="excluir"
+                                    title="Excluir"
+                                    data-id="<?php echo htmlspecialchars($ativo['id_ativo']); ?>"
+                                    data-nome="<?php echo htmlspecialchars($ativo['nome_ativo']); ?>">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                        <?php endif; ?>
 
                         <h2><?php echo htmlspecialchars($ativo['nome_ativo']); ?></h2>
                         <p><strong>Categoria:</strong> <?php echo htmlspecialchars($ativo['categoria_ativo']); ?></p>
